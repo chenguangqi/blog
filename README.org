@@ -1,1 +1,16 @@
-# blog
+
+* 使用ORG搭建Blog
+
+** Blog的目录结构
+   
+#+BEGIN_EXAMPLE
+  .
+  ├── css
+  ├── img
+  ├── Makefile
+  ├── org
+  ├── raw
+  ├── README.org
+  └── _site
+      └── index.html
+#+END_EXAMPLE
