@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>XSLT¹æ·¶</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
-<meta name="title" content="XSLT¹æ·¶"/>
+<title>XSLTè§„èŒƒ</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="XSLTè§„èŒƒ"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="generated" content="2015-10-28"/>
-<meta name="author" content="³Â¹ãÆç"/>
+<meta name="author" content="é™ˆå¹¿æ­§"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
 <link rel='stylesheet' type='text/css' href='css/style.css' />
@@ -138,40 +138,40 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="content">
-<h1 class="title">XSLT¹æ·¶</h1>
+<h1 class="title">XSLTè§„èŒƒ</h1>
 
 
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">XSL×ª»»(XSLT)</a>
+<li><a href="#sec-1">XSLè½¬æ¢(XSLT)</a>
 <ul>
-<li><a href="#sec-1-1">¼ò½é</a></li>
-<li><a href="#sec-1-2">ÑùÊ½±í½á¹¹</a></li>
-<li><a href="#sec-1-3">Êý¾ÝÄ£ÐÍ</a></li>
-<li><a href="#sec-1-4">±í´ïÊ½</a></li>
-<li><a href="#sec-1-5">Ä£°å¹æÔò</a>
+<li><a href="#sec-1-1">ç®€ä»‹</a></li>
+<li><a href="#sec-1-2">æ ·å¼è¡¨ç»“æž„</a></li>
+<li><a href="#sec-1-3">æ•°æ®æ¨¡åž‹</a></li>
+<li><a href="#sec-1-4">è¡¨è¾¾å¼</a></li>
+<li><a href="#sec-1-5">æ¨¡æ¿è§„åˆ™</a>
 <ul>
-<li><a href="#sec-1-5-1">´¦ÀíÄ£ÐÍ</a></li>
-<li><a href="#sec-1-5-2">¸²Ð´Ä£°å¹æÔò</a></li>
-<li><a href="#sec-1-5-3">Ä£Ê½(mode)</a></li>
-<li><a href="#sec-1-5-4">ÄÚÖÃÄ£°å¹æÔò</a></li>
+<li><a href="#sec-1-5-1">å¤„ç†æ¨¡åž‹</a></li>
+<li><a href="#sec-1-5-2">è¦†å†™æ¨¡æ¿è§„åˆ™</a></li>
+<li><a href="#sec-1-5-3">æ¨¡å¼(mode)</a></li>
+<li><a href="#sec-1-5-4">å†…ç½®æ¨¡æ¿è§„åˆ™</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-6">ÃüÃûÄ£°å</a></li>
-<li><a href="#sec-1-7">´´½¨½á¹ûÊ÷</a></li>
-<li><a href="#sec-1-8">ÖØ¸´</a></li>
-<li><a href="#sec-1-9">Ìõ¼þ´¦Àí</a></li>
-<li><a href="#sec-1-10">ÅÅÐò</a></li>
-<li><a href="#sec-1-11">±äÁ¿ºÍ²ÎÊý</a></li>
-<li><a href="#sec-1-12">¸½¼Ó¹¦ÄÜ</a></li>
-<li><a href="#sec-1-13">ÏûÏ¢</a></li>
-<li><a href="#sec-1-14">À©Õ¹</a></li>
-<li><a href="#sec-1-15">·´À¡</a></li>
-<li><a href="#sec-1-16">Êä³ö</a></li>
-<li><a href="#sec-1-17">Ò»ÖÂÐÔ</a></li>
-<li><a href="#sec-1-18">±íÊ¾·¨</a></li>
+<li><a href="#sec-1-6">å‘½åæ¨¡æ¿</a></li>
+<li><a href="#sec-1-7">åˆ›å»ºç»“æžœæ ‘</a></li>
+<li><a href="#sec-1-8">é‡å¤</a></li>
+<li><a href="#sec-1-9">æ¡ä»¶å¤„ç†</a></li>
+<li><a href="#sec-1-10">æŽ’åº</a></li>
+<li><a href="#sec-1-11">å˜é‡å’Œå‚æ•°</a></li>
+<li><a href="#sec-1-12">é™„åŠ åŠŸèƒ½</a></li>
+<li><a href="#sec-1-13">æ¶ˆæ¯</a></li>
+<li><a href="#sec-1-14">æ‰©å±•</a></li>
+<li><a href="#sec-1-15">åé¦ˆ</a></li>
+<li><a href="#sec-1-16">è¾“å‡º</a></li>
+<li><a href="#sec-1-17">ä¸€è‡´æ€§</a></li>
+<li><a href="#sec-1-18">è¡¨ç¤ºæ³•</a></li>
 </ul>
 </li>
 </ul>
@@ -179,17 +179,17 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">XSL×ª»»(XSLT)</h2>
+<h2 id="sec-1">XSLè½¬æ¢(XSLT)</h2>
 <div class="outline-text-2" id="text-1">
 
-<p>  ±¾¹æ·¶¶¨ÒåÁËXSLTµÄÓï·¨ºÍÓïÒå£¬ÕâÊÇÒ»ÖÖ½«XMLÎÄµµ×ª»»³ÉÆäËüXMLÎÄµµµÄÓïÑÔ¡£
+<p>  æœ¬è§„èŒƒå®šä¹‰äº†XSLTçš„è¯­æ³•å’Œè¯­ä¹‰ï¼Œè¿™æ˜¯ä¸€ç§å°†XMLæ–‡æ¡£è½¬æ¢æˆå…¶å®ƒXMLæ–‡æ¡£çš„è¯­è¨€ã€‚
 </p>
 
 
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">¼ò½é</h3>
+<h3 id="sec-1-1">ç®€ä»‹</h3>
 <div class="outline-text-3" id="text-1-1">
 
 
@@ -198,7 +198,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">ÑùÊ½±í½á¹¹</h3>
+<h3 id="sec-1-2">æ ·å¼è¡¨ç»“æž„</h3>
 <div class="outline-text-3" id="text-1-2">
 
 
@@ -207,7 +207,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">Êý¾ÝÄ£ÐÍ</h3>
+<h3 id="sec-1-3">æ•°æ®æ¨¡åž‹</h3>
 <div class="outline-text-3" id="text-1-3">
 
 
@@ -216,7 +216,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4">±í´ïÊ½</h3>
+<h3 id="sec-1-4">è¡¨è¾¾å¼</h3>
 <div class="outline-text-3" id="text-1-4">
 
 
@@ -225,7 +225,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5">Ä£°å¹æÔò</h3>
+<h3 id="sec-1-5">æ¨¡æ¿è§„åˆ™</h3>
 <div class="outline-text-3" id="text-1-5">
 
 
@@ -233,7 +233,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-5-1" class="outline-4">
-<h4 id="sec-1-5-1">´¦ÀíÄ£ÐÍ</h4>
+<h4 id="sec-1-5-1">å¤„ç†æ¨¡åž‹</h4>
 <div class="outline-text-4" id="text-1-5-1">
 
 
@@ -242,31 +242,31 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-5-2" class="outline-4">
-<h4 id="sec-1-5-2">¸²Ð´Ä£°å¹æÔò</h4>
+<h4 id="sec-1-5-2">è¦†å†™æ¨¡æ¿è§„åˆ™</h4>
 <div class="outline-text-4" id="text-1-5-2">
 
 
 
 
-<pre class="example">&lt;!-- ·ÖÀà: Ö¸Áî(instruction) --&gt;
+<pre class="example">&lt;!-- åˆ†ç±»: æŒ‡ä»¤(instruction) --&gt;
 &lt;xsl:apply-imports/&gt;
 </pre>
 
 
 <p>
-    Ò»¸öÄ£°å¹æÔò»á¸²Ð´ÔÚÑùÊ½±íÖÐµ¼ÈëµÄÄ£°å¹æÔò£¬Ê¹ÓÃ <code>xsl:apply-imports</code> ÔªËØ¿ÉÒÔµ÷ÓÃ±»¸²Ð´µÄÄ£°å¹æÔò¡£
+    ä¸€ä¸ªæ¨¡æ¿è§„åˆ™ä¼šè¦†å†™åœ¨æ ·å¼è¡¨ä¸­å¯¼å…¥çš„æ¨¡æ¿è§„åˆ™ï¼Œä½¿ç”¨ <code>xsl:apply-imports</code> å…ƒç´ å¯ä»¥è°ƒç”¨è¢«è¦†å†™çš„æ¨¡æ¿è§„åˆ™ã€‚
 </p>
 <p>
-    ÔÚÑùÊ½±í´¦ÀíµÄÈÎºÎµã£¬ÓÐÒ»¸öµ±Ç°Ä£°å¹æÔò¡£Ã¿µ±Æ¥Åäµ½Ò»¸öÄ£°å¹æÔò£¬Õâ¸öÄ£°å¹æÔò¾Í±ä³Éµ±Ç°Ä£°å¹æÔòÓÃÓÚ
-    ¹æÔòÄ£°åµÄÊµÀý»¯¡£µ± <code>xsl:for-each</code> ÔªËØ±»ÊµÀý»¯Ê±£¬µ±Ç°Ä£°å¹æÔò±ä³Énull£¬Îª <code>xsl:for-each</code> ÔªËØ
-    µÄÉÏÏÂÎÄµÄÊµÀý»¯¡£
+    åœ¨æ ·å¼è¡¨å¤„ç†çš„ä»»ä½•ç‚¹ï¼Œæœ‰ä¸€ä¸ªå½“å‰æ¨¡æ¿è§„åˆ™ã€‚æ¯å½“åŒ¹é…åˆ°ä¸€ä¸ªæ¨¡æ¿è§„åˆ™ï¼Œè¿™ä¸ªæ¨¡æ¿è§„åˆ™å°±å˜æˆå½“å‰æ¨¡æ¿è§„åˆ™ç”¨äºŽ
+    è§„åˆ™æ¨¡æ¿çš„å®žä¾‹åŒ–ã€‚å½“ <code>xsl:for-each</code> å…ƒç´ è¢«å®žä¾‹åŒ–æ—¶ï¼Œå½“å‰æ¨¡æ¿è§„åˆ™å˜æˆnullï¼Œä¸º <code>xsl:for-each</code> å…ƒç´ 
+    çš„ä¸Šä¸‹æ–‡çš„å®žä¾‹åŒ–ã€‚
 </p>
 <p>
-    <code>xsl:apply-imports</code> ´¦Àíµ±Ç°½Úµã½öÊ¹ÓÃµ¼Èë½ø°üº¬µ±Ç°Ä£°å¹æÔòµÄÑùÊ½ÔªËØµÄÄ£°å¹æÔò¡£
-    ¸Ã½ÚµãÔÚµ±Ç°Ä£°å¹æÔòµÄmodeÖÐ´¦Àí¡£µ±Ç°Ä£°å¹æÔòÊÇnull£¬Èç¹ûÊµÀý»¯ <code>xsl:apply-imports</code> , ¾Í»á³ö´í¡£ 
+    <code>xsl:apply-imports</code> å¤„ç†å½“å‰èŠ‚ç‚¹ä»…ä½¿ç”¨å¯¼å…¥è¿›åŒ…å«å½“å‰æ¨¡æ¿è§„åˆ™çš„æ ·å¼å…ƒç´ çš„æ¨¡æ¿è§„åˆ™ã€‚
+    è¯¥èŠ‚ç‚¹åœ¨å½“å‰æ¨¡æ¿è§„åˆ™çš„modeä¸­å¤„ç†ã€‚å½“å‰æ¨¡æ¿è§„åˆ™æ˜¯nullï¼Œå¦‚æžœå®žä¾‹åŒ– <code>xsl:apply-imports</code> , å°±ä¼šå‡ºé”™ã€‚ 
 </p>
 <p>    
-    ÀýÈç£¬¼ÙÉèÑùÊ½±í <code>doc.xsl</code> °üº¬Ò»¸ö <code>example</code> ÔªËØµÄÄ£°å¹æÔò:
+    ä¾‹å¦‚ï¼Œå‡è®¾æ ·å¼è¡¨ <code>doc.xsl</code> åŒ…å«ä¸€ä¸ª <code>example</code> å…ƒç´ çš„æ¨¡æ¿è§„åˆ™:
 </p>
 
 
@@ -277,7 +277,7 @@ for the JavaScript code in this tag.
 
 
 <p>
-    ÁíÒ»ÑùÊ½±íµ¼Èë <code>doc.xsl</code>, ÈçÏÂÐÞ¸Ä <code>example</code> ÔªËØµÄ´¦Àí:
+    å¦ä¸€æ ·å¼è¡¨å¯¼å…¥ <code>doc.xsl</code>, å¦‚ä¸‹ä¿®æ”¹ <code>example</code> å…ƒç´ çš„å¤„ç†:
 </p>
 
 
@@ -292,7 +292,7 @@ for the JavaScript code in this tag.
 
 
 <p>
-    ×éºÏÐ§¹û½« <code>example</code> ×ª»»½øµÄÔªËØ¸ñÊ½:
+    ç»„åˆæ•ˆæžœå°† <code>example</code> è½¬æ¢è¿›çš„å…ƒç´ æ ¼å¼:
 </p>
 
 
@@ -305,28 +305,28 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-5-3" class="outline-4">
-<h4 id="sec-1-5-3">Ä£Ê½(mode)</h4>
+<h4 id="sec-1-5-3">æ¨¡å¼(mode)</h4>
 <div class="outline-text-4" id="text-1-5-3">
 
-<p>    Ä£Ê½ÔÊÐíÔªËØ±»´¦Àí¶à´Î£¬Ã¿´ÎµÄ´¦Àí½á¹û²»Í¬¡£
+<p>    æ¨¡å¼å…è®¸å…ƒç´ è¢«å¤„ç†å¤šæ¬¡ï¼Œæ¯æ¬¡çš„å¤„ç†ç»“æžœä¸åŒã€‚
 </p>
 <p>
-    <code>xsl:template</code> ºÍ <code>xsl:apply-templates</code> ÓÐÒ»¸ö¿ÉÑ¡µÄÊôÐÔ <code>mode</code> ¡£ <code>mode</code> ÊôÐÔµÄÖµÊÇÒ»¸ö<a href="#QName">QName</a>, 
-    Èç¹û <code>xsl:template</code> Ã»ÓÐ <code>mactch</code> ÊôÐÔ£¬Ëü±ØÐëÃ»ÓÐ <code>mode</code> ÊôÐÔ¡£Èç¹û <code>xsl:apply-templates</code> ÔªËØ
-    ÓÐ <code>mode</code> ÊôÐÔ£¬ÄÇÃ´Ëü½öÓ¦ÓÃÄÇÐ©ÓÐÏàÍ¬ <code>mode</code> µÄ <code>xsl:template</code> ÔªËØµÄÄ£°å¹æÔò; 
-    Èç¹û <code>xsl:apply-templates</code> ÔªËØÃ»ÓÐ <code>mode</code> ÊôÐÔ£¬ÄÇÃ´Ëü½öÓ¦ÓÃÄÇÐ©Ã»ÓÐ <code>mode</code> ÊôÐÔµÄ <code>xsl:template</code> ÔªËØ
-    µÄÄ£°å¹æÔò¡£
+    <code>xsl:template</code> å’Œ <code>xsl:apply-templates</code> æœ‰ä¸€ä¸ªå¯é€‰çš„å±žæ€§ <code>mode</code> ã€‚ <code>mode</code> å±žæ€§çš„å€¼æ˜¯ä¸€ä¸ª<a href="#QName">QName</a>, 
+    å¦‚æžœ <code>xsl:template</code> æ²¡æœ‰ <code>mactch</code> å±žæ€§ï¼Œå®ƒå¿…é¡»æ²¡æœ‰ <code>mode</code> å±žæ€§ã€‚å¦‚æžœ <code>xsl:apply-templates</code> å…ƒç´ 
+    æœ‰ <code>mode</code> å±žæ€§ï¼Œé‚£ä¹ˆå®ƒä»…åº”ç”¨é‚£äº›æœ‰ç›¸åŒ <code>mode</code> çš„ <code>xsl:template</code> å…ƒç´ çš„æ¨¡æ¿è§„åˆ™; 
+    å¦‚æžœ <code>xsl:apply-templates</code> å…ƒç´ æ²¡æœ‰ <code>mode</code> å±žæ€§ï¼Œé‚£ä¹ˆå®ƒä»…åº”ç”¨é‚£äº›æ²¡æœ‰ <code>mode</code> å±žæ€§çš„ <code>xsl:template</code> å…ƒç´ 
+    çš„æ¨¡æ¿è§„åˆ™ã€‚
 </p>
 </div>
 
 </div>
 
 <div id="outline-container-1-5-4" class="outline-4">
-<h4 id="sec-1-5-4">ÄÚÖÃÄ£°å¹æÔò</h4>
+<h4 id="sec-1-5-4">å†…ç½®æ¨¡æ¿è§„åˆ™</h4>
 <div class="outline-text-4" id="text-1-5-4">
 
-<p>    ÓÐÒ»¸öÄÚÖÃµÄÄ£°å¹æÔò£¬ÔÊÐí¼ÌÐøµÝ¹éµÄ´¦ÀíÔÚÑùÊ½±íÖÐÍ¨¹ýÏÔÊ½Ä£°å¹æÔòÃ»ÓÐ³É¹¦Ä£Ê½Æ¥ÅäµÄ²¿·Ö¡£
-    Õâ¸öÄ£°åÓ¦ÓÃµ½ <b>ÔªËØ½Úµã</b> ºÍ <b>¸ú½Úµã</b> ¡£ÏÂÃæÏÔÊ¾ÁËÄÚÖÃÄ£°å¹æÔòÏàµ±ÓÚ£º
+<p>    æœ‰ä¸€ä¸ªå†…ç½®çš„æ¨¡æ¿è§„åˆ™ï¼Œå…è®¸ç»§ç»­é€’å½’çš„å¤„ç†åœ¨æ ·å¼è¡¨ä¸­é€šè¿‡æ˜¾å¼æ¨¡æ¿è§„åˆ™æ²¡æœ‰æˆåŠŸæ¨¡å¼åŒ¹é…çš„éƒ¨åˆ†ã€‚
+    è¿™ä¸ªæ¨¡æ¿åº”ç”¨åˆ° <b>å…ƒç´ èŠ‚ç‚¹</b> å’Œ <b>è·ŸèŠ‚ç‚¹</b> ã€‚ä¸‹é¢æ˜¾ç¤ºäº†å†…ç½®æ¨¡æ¿è§„åˆ™ç›¸å½“äºŽï¼š
 </p>
 
 
@@ -338,8 +338,8 @@ for the JavaScript code in this tag.
 
 
 <p>
-    Ã¿Ò»¸ömodeÒ²ÓÐÒ»¸öÄÚÖÃÄ£°å¹æÔò£¬ÔÊÐí¼ÌÐøÔÚÍ¬¸ömodeÖÐµÝ¹éµÄ´¦ÀíÔÚÑùÊ½±íÖÐÍ¨¹ýÏÔÊ¾¹æÔòÃ»ÓÐ³É¹¦Æ¥ÅäµÄ²¿·Ö¡£
-    Õâ¸öÄ£°åÓ¦ÓÃµ½ <b>ÔªËØ½Úµã</b> ºÍ <b>¸ú½Úµã</b> ¡£ÏÂÃæÏÔÊ¾ÁËmode(m)ÄÚÖÃÄ£°å¹æÔòÏàµ±ÓÚ:
+    æ¯ä¸€ä¸ªmodeä¹Ÿæœ‰ä¸€ä¸ªå†…ç½®æ¨¡æ¿è§„åˆ™ï¼Œå…è®¸ç»§ç»­åœ¨åŒä¸ªmodeä¸­é€’å½’çš„å¤„ç†åœ¨æ ·å¼è¡¨ä¸­é€šè¿‡æ˜¾ç¤ºè§„åˆ™æ²¡æœ‰æˆåŠŸåŒ¹é…çš„éƒ¨åˆ†ã€‚
+    è¿™ä¸ªæ¨¡æ¿åº”ç”¨åˆ° <b>å…ƒç´ èŠ‚ç‚¹</b> å’Œ <b>è·ŸèŠ‚ç‚¹</b> ã€‚ä¸‹é¢æ˜¾ç¤ºäº†mode(m)å†…ç½®æ¨¡æ¿è§„åˆ™ç›¸å½“äºŽ:
 </p>
 
 
@@ -351,7 +351,7 @@ for the JavaScript code in this tag.
 
 
 <p>
-    ÓÃÀ´¿½±´ÎÄ±¾ºÍÊôÐÔ½ÚµãµÄÎÄ±¾µÄÄÚÖÃÄ£°å¹æÔò:
+    ç”¨æ¥æ‹·è´æ–‡æœ¬å’Œå±žæ€§èŠ‚ç‚¹çš„æ–‡æœ¬çš„å†…ç½®æ¨¡æ¿è§„åˆ™:
 </p>
 
 
@@ -362,7 +362,7 @@ for the JavaScript code in this tag.
 
 
 <p>
-    ´¦ÀíÖ¸ÁîºÍ×¢ÊÍµÄÄÚÖÃÄ£°å¹æÔòÊ²Ã´¶¼²»×ö¡£
+    å¤„ç†æŒ‡ä»¤å’Œæ³¨é‡Šçš„å†…ç½®æ¨¡æ¿è§„åˆ™ä»€ä¹ˆéƒ½ä¸åšã€‚
 </p>
 
 
@@ -371,10 +371,10 @@ for the JavaScript code in this tag.
 
 
 <p>
-    ÃüÃû¿Õ¼ä½ÚµãµÄÄÚÖÃÄ£°å¹æÔòÒ²ÊÇÊ²Ã´¶¼²»×ö¡£Ã»ÓÐÄ£Ê½ÄÜÆ¥ÅäÃüÃû¿Õ¼Å½Úµã£¬ËùÓÐÄÚÖÃÄ£°å¹æÔòÊÇÎ¨Ò»ÄÜÓ¦ÓÃµÄÃüÃû¿Õ¼ä½ÚµãµÄ¹æÔò¡£
+    å‘½åç©ºé—´èŠ‚ç‚¹çš„å†…ç½®æ¨¡æ¿è§„åˆ™ä¹Ÿæ˜¯ä»€ä¹ˆéƒ½ä¸åšã€‚æ²¡æœ‰æ¨¡å¼èƒ½åŒ¹é…å‘½åç©ºå¯‚èŠ‚ç‚¹ï¼Œæ‰€æœ‰å†…ç½®æ¨¡æ¿è§„åˆ™æ˜¯å”¯ä¸€èƒ½åº”ç”¨çš„å‘½åç©ºé—´èŠ‚ç‚¹çš„è§„åˆ™ã€‚
 </p>
 <p>
-    ÄÚÖÃÄ£°å¹æÔò±»ÊÓÎªÔÚÑùÊ½±íÖ®Ç°ÒþÊ½µ¼Èë£¬Òò´Ë±ÈÆäËûËùÓÐµÄÄ£°å¹æÔòµÄµ¼ÈëÓÅÏÈ¼¶µÍ¡£
+    å†…ç½®æ¨¡æ¿è§„åˆ™è¢«è§†ä¸ºåœ¨æ ·å¼è¡¨ä¹‹å‰éšå¼å¯¼å…¥ï¼Œå› æ­¤æ¯”å…¶ä»–æ‰€æœ‰çš„æ¨¡æ¿è§„åˆ™çš„å¯¼å…¥ä¼˜å…ˆçº§ä½Žã€‚
 </p>
 </div>
 </div>
@@ -382,7 +382,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6">ÃüÃûÄ£°å</h3>
+<h3 id="sec-1-6">å‘½åæ¨¡æ¿</h3>
 <div class="outline-text-3" id="text-1-6">
 
 
@@ -391,7 +391,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-7" class="outline-3">
-<h3 id="sec-1-7">´´½¨½á¹ûÊ÷</h3>
+<h3 id="sec-1-7">åˆ›å»ºç»“æžœæ ‘</h3>
 <div class="outline-text-3" id="text-1-7">
 
 
@@ -400,7 +400,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-8" class="outline-3">
-<h3 id="sec-1-8">ÖØ¸´</h3>
+<h3 id="sec-1-8">é‡å¤</h3>
 <div class="outline-text-3" id="text-1-8">
 
 
@@ -409,7 +409,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-9" class="outline-3">
-<h3 id="sec-1-9">Ìõ¼þ´¦Àí</h3>
+<h3 id="sec-1-9">æ¡ä»¶å¤„ç†</h3>
 <div class="outline-text-3" id="text-1-9">
 
 
@@ -418,7 +418,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-10" class="outline-3">
-<h3 id="sec-1-10">ÅÅÐò</h3>
+<h3 id="sec-1-10">æŽ’åº</h3>
 <div class="outline-text-3" id="text-1-10">
 
 
@@ -427,7 +427,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-11" class="outline-3">
-<h3 id="sec-1-11">±äÁ¿ºÍ²ÎÊý</h3>
+<h3 id="sec-1-11">å˜é‡å’Œå‚æ•°</h3>
 <div class="outline-text-3" id="text-1-11">
 
 
@@ -436,7 +436,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-12" class="outline-3">
-<h3 id="sec-1-12">¸½¼Ó¹¦ÄÜ</h3>
+<h3 id="sec-1-12">é™„åŠ åŠŸèƒ½</h3>
 <div class="outline-text-3" id="text-1-12">
 
 
@@ -445,7 +445,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-13" class="outline-3">
-<h3 id="sec-1-13">ÏûÏ¢</h3>
+<h3 id="sec-1-13">æ¶ˆæ¯</h3>
 <div class="outline-text-3" id="text-1-13">
 
 
@@ -454,7 +454,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-14" class="outline-3">
-<h3 id="sec-1-14">À©Õ¹</h3>
+<h3 id="sec-1-14">æ‰©å±•</h3>
 <div class="outline-text-3" id="text-1-14">
 
 
@@ -463,7 +463,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-15" class="outline-3">
-<h3 id="sec-1-15">·´À¡</h3>
+<h3 id="sec-1-15">åé¦ˆ</h3>
 <div class="outline-text-3" id="text-1-15">
 
 
@@ -472,7 +472,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-16" class="outline-3">
-<h3 id="sec-1-16">Êä³ö</h3>
+<h3 id="sec-1-16">è¾“å‡º</h3>
 <div class="outline-text-3" id="text-1-16">
 
 
@@ -481,7 +481,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-17" class="outline-3">
-<h3 id="sec-1-17">Ò»ÖÂÐÔ</h3>
+<h3 id="sec-1-17">ä¸€è‡´æ€§</h3>
 <div class="outline-text-3" id="text-1-17">
 
 
@@ -490,12 +490,12 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="outline-container-1-18" class="outline-3">
-<h3 id="sec-1-18">±íÊ¾·¨</h3>
+<h3 id="sec-1-18">è¡¨ç¤ºæ³•</h3>
 <div class="outline-text-3" id="text-1-18">
 
 
 <p>
- <b>³ÖÐø¸üÐÂÖÐ &hellip;&hellip;</b>
+ <b>æŒç»­æ›´æ–°ä¸­ &hellip;&hellip;</b>
 </p>
 </div>
 </div>
@@ -504,7 +504,7 @@ for the JavaScript code in this tag.
 
 <div id="postamble">
 <p class="date">Date: 2015-10-28</p>
-<p class="author">Author: ³Â¹ãÆç</p>
+<p class="author">Author: é™ˆå¹¿æ­§</p>
 <p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
 
