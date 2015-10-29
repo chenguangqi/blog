@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>将发布Org文件为HTML文件</title>
+<!-- 2015-10-29 木 17:12 -->
+<meta  charset="utf-8">
+<meta  name="generator" content="Org-mode">
+<meta  name="author" content="Chen Guangqi">
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">将发布Org文件为HTML文件</h1>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">摘要</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+本文简单的介绍了Org工程的组织形式，使用 <code>Org-mode 发布工程</code> 的方法以及常用的设置选项。
+为个人Blog网站的搭建奠定基础。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Blog发布</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+使用变量 <code>org-publish-project-alist</code> 来配置需要发布的文档。
+该变量的值有下面的两种形式：
+</p>
+
+<pre class="example">
+("project-name" :property value :property value ...)
+</pre>
+<p>
+或
+</p>
+<pre class="example">
+("project-name" :components ("project-name" "project-name" ...))
+</pre>
+<p>
+第一种形式用于配置单工程，第二种形式用于组织多个工程(使用 <code>:components</code>)，并以给定的顺序发布各个工程。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">单个工程的配置</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+配置的大部分属性是可选的，但是有些属性必须设置。尤其是要让Org知道从哪里查找源文件，发布到哪里。
+</p>
+
+<pre class="example">
+:base-directory          ; 包含源文件的目录
+:publishing-directory    ; 发布的目录
+:preparation-function    ; 发布前要调用的函数或函数列表
+:completion-function     ; 发布后要调用的函数或函数列表
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">选择文件</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+默认在源文件目录中所有以 <code>.org</code> 为扩展名的文件被视为工程的一部分。这个可以通过设定属性进行修改。
+</p>
+<pre class="example">
+:base-extension    ; 源文件的扩展名（不带.)， 这实际是一个正则表达式。
+                   ; 使用符号 =any= 可以包含源文件目录所有文件，
+                   ; 即使没有带扩展名的文件。
+:exclude           ; 不需要发布的文件的正则表达式。
+:include           ; 需要发布的文件列表，即使他们在 =:base-directory= 和 =:exclude= 。
+:recursive
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">发布动作</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+发布意味着文件将被拷贝到目标目录，并在这个过程中进行转换。默认的转换是将Org文件导出为HTML文件，
+由函数 <code>org-html-publish-to-html</code> 完成，它会调用HTML导出器。但是也可以发布成PFD文件，
+使用 =org-latex-publish-to-pdf=，或者发布为ascii、Texinfo等格式，使用响应的函数。
+</p>
+
+<p>
+如果你想发布Org文件为Org文件，添加 <code>archived</code> 和 <code>commented</code> 以及删除 <code>tag-exclude</code> 树，
+使用函数 <code>org-org-publish-to-org</code> 。这将在发布目录中生成 <code>file.org</code> 文件。如果需要htmlized
+版的文件，可以设置 <code>:htmlized-source</code> 属性为 <code>t</code> ，这将在发布目录中生成 <code>file.org.html</code> 文件。
+</p>
+
+<p>
+其他像图片文件只需要拷贝到发布目录。完成该这个可以使用函数 <code>org-publish-attachment</code> 。
+对于非Org文件，必须指定发布函数：
+</p>
+<pre class="example">
+:publish-function    ; 发布文件的函数，也可是函数的列表
+:htmlized-source     ; 非nil，发布htmlized源文件。
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">导出器的选项</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+发布过程中可以使用的导出设置选项的属性列表。大部分情况，这些属性对应到Org中的用户变量。
+在 <code>org-publish-project-alist</code> 中设置的属性会覆盖用户变量，在源文件中设置的属性会覆盖
+所有设置。
+</p>
+
+<ul class="org-ul">
+<li>用于属性
+<pre class="example">
+:archived-trees 	  org-export-with-archived-trees
+:exclude-tags 	  org-export-exclude-tags
+:headline-levels 	  org-export-headline-levels
+:language 	          org-export-default-language
+:preserve-breaks 	  org-export-preserve-breaks
+:section-numbers 	  org-export-with-section-numbers
+:select-tags 	  org-export-select-tags
+:with-author 	  org-export-with-author
+:with-creator 	  org-export-with-creator
+:with-date 	          org-export-with-date
+:with-drawers 	  org-export-with-drawers
+:with-email 	  org-export-with-email
+:with-emphasize 	  org-export-with-emphasize
+:with-fixed-width 	  org-export-with-fixed-width
+:with-footnotes 	  org-export-with-footnotes
+:with-latex 	  org-export-with-latex
+:with-planning 	  org-export-with-planning
+:with-priority 	  org-export-with-priority
+:with-properties 	  org-export-with-properties
+:with-special-strings org-export-with-special-strings
+:with-sub-superscript org-export-with-sub-superscripts
+:with-tables 	  org-export-with-tables
+:with-tags 	          org-export-with-tags
+:with-tasks 	  org-export-with-tasks
+:with-timestamps 	  org-export-with-timestamps
+:with-title 	  org-export-with-title
+:with-toc 	          org-export-with-toc
+:with-todo-keywords   org-export-with-todo-keywords
+</pre>
+</li>
+<li>HTML特定属性 
+<pre class="example">
+:html-allow-name-attribute-in-anchors 	    org-html-allow-name-attribute-in-anchors
+:html-checkbox-type 	                    org-html-checkbox-type
+:html-container 	                            org-html-container-element
+:html-divs 	                                    org-html-divs
+:html-doctype 	                            org-html-doctype
+:html-extension 	                            org-html-extension
+:html-footnote-format 	                    org-html-footnote-format
+:html-footnote-separator 	                    org-html-footnote-separator
+:html-footnotes-section 	                    org-html-footnotes-section
+:html-format-drawer-function 	            org-html-format-drawer-function
+:html-format-headline-function 	            org-html-format-headline-function
+:html-format-inlinetask-function 	            org-html-format-inlinetask-function
+:html-head-extra 	                            org-html-head-extra
+:html-head-include-default-style 	            org-html-head-include-default-style
+:html-head-include-scripts 	                    org-html-head-include-scripts
+:html-head 	                                    org-html-head
+:html-home/up-format 	                    org-html-home/up-format
+:html-html5-fancy 	                            org-html-html5-fancy
+:html-indent 	                            org-html-indent
+:html-infojs-options 	                    org-html-infojs-options
+:html-infojs-template 	                    org-html-infojs-template
+:html-inline-image-rules 	                    org-html-inline-image-rules
+:html-inline-images 	                    org-html-inline-images
+:html-link-home 	                            org-html-link-home
+:html-link-org-files-as-html 	            org-html-link-org-files-as-html
+:html-link-up 	                            org-html-link-up
+:html-link-use-abs-url 	                    org-html-link-use-abs-url
+:html-mathjax-options 	                    org-html-mathjax-options
+:html-mathjax-template 	                    org-html-mathjax-template
+:html-metadata-timestamp-format 	            org-html-metadata-timestamp-format
+:html-postamble-format 	                    org-html-postamble-format
+:html-postamble 	                            org-html-postamble
+:html-preamble-format 	                    org-html-preamble-format
+:html-preamble 	                            org-html-preamble
+:html-table-align-individual-fields 	    org-html-table-align-individual-fields
+:html-table-attributes 	                    org-html-table-default-attributes
+:html-table-caption-above 	                    org-html-table-caption-above
+:html-table-data-tags 	                    org-html-table-data-tags
+:html-table-header-tags 	                    org-html-table-header-tags
+:html-table-row-tags 	                    org-html-table-row-tags
+:html-table-use-header-tags-for-first-column    org-html-table-use-header-tags-for-first-column
+:html-tag-class-prefix 	                    org-html-tag-class-prefix
+:html-text-markup-alist 	                    org-html-text-markup-alist
+:html-todo-kwd-class-prefix 	            org-html-todo-kwd-class-prefix
+:html-toplevel-hlevel 	                    org-html-toplevel-hlevel
+:html-use-infojs 	                            org-html-use-infojs
+:html-validation-link 	                    org-html-validation-link
+:html-viewport 	                            org-html-viewport
+:html-xml-declaration 	                    org-html-xml-declaration
+</pre>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">发布的文件之间的Link</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+为了创建一个Org文件与另一个Org文件的连接，使用下面的方法：
+</p>
+<pre class="example">
+[[file:foo.org][The foo]] 或 file:foo.org
+</pre>
+
+<p>
+图片文件也可以使用这样的方法。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8">生成站点地图</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+下面的属性用来控制给定工程发布的文件映射
+</p>
+<pre class="example">
+:auto-sitemap               ; 非nil，发布站点地图
+:sitemap-filename           ; 输出的站点地图文件的名称，默认是sitemap.org
+:sitemap-title              ; 站点地图页的标题，默认是文件的名称。
+:sitemap-function
+:sitemap-sort-folders
+:sitemap-sort-files
+:sitemap-ignore-case
+:sitemap-file-entry-format
+:sitemap-date-format
+:sitemap-sans-extension
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">生成index</h2>
+<div class="outline-text-2" id="text-9">
+<p>
+Org可以生成发布工程夸文件index。
+</p>
+<pre class="example">
+:makeindex                   ; 非nil，生成theindex.org并发布theindex.html.
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">触发发布</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+正确配置后，Org可以使用以下命令发布：
+</p>
+<ul class="org-ul">
+<li>C-c C-e P x (org-publish)
+提示发布指定工程
+</li>
+
+<li>C-c C-e P p (org-publish-current-project)
+发布包含当前文件的工程
+</li>
+
+<li>C-c C-e P f (org-publish-current-file)
+发布当前文件
+</li>
+
+<li>C-c C-e P a (org-publish-all)
+发布所有工程
+</li>
+</ul>
+
+<p>
+Org使用时间戳跟踪文件的变更。上面的函数通常仅发布变更的文件。调用上面的函数时，可以使用前缀参数强制发布
+所有的文件，或设置变量 <code>org-publish-use-timestamps-flag</code> 。如果文件通过 <code>#+SETUPFILE:=，
+  或 =+INCLUDE:</code> 包含其他文件，就必须强制发布。
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Chen Guangqi</p>
+<p class="date">Created: 2015-10-29 木 17:12</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

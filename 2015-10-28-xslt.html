@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh_CN" xml:lang="zh_CN">
+<head>
+<title>XSLT规范</title>
+<!-- 2015-10-29 木 17:12 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="陈广歧" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">XSLT规范</h1>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">XSL转换(XSLT)</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+本规范定义了XSLT的语法和语义，这是一种将XML文档转换成其它XML文档的语言。
+</p>
+</div>
+
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1">简介</h3>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2">样式表结构</h3>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3">数据模型</h3>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4">表达式</h3>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5">模板规则</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-sec-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1">处理模型</h4>
+</div>
+
+<div id="outline-container-sec-1-5-2" class="outline-4">
+<h4 id="sec-1-5-2">覆写模板规则</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<pre class="example">
+&lt;!-- 分类: 指令(instruction) --&gt;
+&lt;xsl:apply-imports/&gt;
+</pre>
+
+<p>
+一个模板规则会覆写在样式表中导入的模板规则，使用 <code>xsl:apply-imports</code> 元素可以调用被覆写的模板规则。
+</p>
+
+<p>
+在样式表处理的任何点，有一个当前模板规则。每当匹配到一个模板规则，这个模板规则就变成当前模板规则用于
+规则模板的实例化。当 <code>xsl:for-each</code> 元素被实例化时，当前模板规则变成null，为 <code>xsl:for-each</code> 元素
+的上下文的实例化。
+</p>
+
+<p>
+<code>xsl:apply-imports</code> 处理当前节点仅使用导入进包含当前模板规则的样式元素的模板规则。
+该节点在当前模板规则的mode中处理。当前模板规则是null，如果实例化 <code>xsl:apply-imports</code> , 就会出错。 
+</p>
+
+<p>
+例如，假设样式表 <code>doc.xsl</code> 包含一个 <code>example</code> 元素的模板规则:
+</p>
+<pre class="example">
+&lt;xsl:template match="example"&gt;
+  &lt;pre&gt;&lt;xsl:apply-templates/&gt;&lt;/pre&gt;
+&lt;/xsl:template&gt;
+</pre>
+
+<p>
+另一样式表导入 <code>doc.xsl</code>, 如下修改 <code>example</code> 元素的处理:
+</p>
+<pre class="example">
+&lt;xsl:import href="doc.xsl"/&gt;
+
+&lt;xsl:template match="example"&gt;
+  &lt;div style="border: solid red"&gt;
+    &lt;xsl:apply-imports/&gt;
+  &lt;/div&gt;
+&lt;xsl:template&gt;
+</pre>
+
+<p>
+组合效果将 <code>example</code> 转换进的元素格式:
+</p>
+<pre class="example">
+&lt;div style="border: solid red"&gt;&lt;pre&gt;...&lt;/pre&gt;&lt;/div&gt;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5-3" class="outline-4">
+<h4 id="sec-1-5-3">模式(mode)</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+模式允许元素被处理多次，每次的处理结果不同。
+</p>
+
+<p>
+<code>xsl:template</code> 和 <code>xsl:apply-templates</code> 有一个可选的属性 <code>mode</code> 。 <code>mode</code> 属性的值是一个<i>QName</i>, 
+如果 <code>xsl:template</code> 没有 <code>mactch</code> 属性，它必须没有 <code>mode</code> 属性。如果 <code>xsl:apply-templates</code> 元素
+有 <code>mode</code> 属性，那么它仅应用那些有相同 <code>mode</code> 的 <code>xsl:template</code> 元素的模板规则; 
+如果 <code>xsl:apply-templates</code> 元素没有 <code>mode</code> 属性，那么它仅应用那些没有 <code>mode</code> 属性的 <code>xsl:template</code> 元素
+的模板规则。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5-4" class="outline-4">
+<h4 id="sec-1-5-4">内置模板规则</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+有一个内置的模板规则，允许继续递归的处理在样式表中通过显式模板规则没有成功模式匹配的部分。
+这个模板应用到 <b>元素节点</b> 和 <b>跟节点</b> 。下面显示了内置模板规则相当于：
+</p>
+
+<pre class="example">
+&lt;xsl:template match="*|/"&gt;
+  &lt;xsl:apply-templates mode="m"/&gt;
+&lt;xsl:template&gt;
+</pre>
+
+<p>
+每一个mode也有一个内置模板规则，允许继续在同个mode中递归的处理在样式表中通过显示规则没有成功匹配的部分。
+这个模板应用到 <b>元素节点</b> 和 <b>跟节点</b> 。下面显示了mode(m)内置模板规则相当于:
+</p>
+
+<pre class="example">
+&lt;xsl:template match="*|/" mode="m"&gt;
+  &lt;xsl:apply-templates mode="m"&gt;
+&lt;xsl:template&gt;
+</pre>
+
+<p>
+用来拷贝文本和属性节点的文本的内置模板规则:
+</p>
+<pre class="example">
+&lt;xsl:template match="text()|@*"&gt;
+  &lt;xsl:value-of select="."/&gt;
+&lt;xsl:template/&gt;
+</pre>
+
+<p>
+处理指令和注释的内置模板规则什么都不做。
+</p>
+<pre class="example">
+&lt;xsl:template match="processing-instruction()|comment()"/&gt;
+</pre>
+
+<p>
+命名空间节点的内置模板规则也是什么都不做。没有模式能匹配命名空寂节点，所有内置模板规则是唯一能应用的命名空间节点的规则。
+</p>
+
+<p>
+内置模板规则被视为在样式表之前隐式导入，因此比其他所有的模板规则的导入优先级低。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6">命名模板</h3>
+</div>
+
+<div id="outline-container-sec-1-7" class="outline-3">
+<h3 id="sec-1-7">创建结果树</h3>
+</div>
+
+<div id="outline-container-sec-1-8" class="outline-3">
+<h3 id="sec-1-8">重复</h3>
+</div>
+
+<div id="outline-container-sec-1-9" class="outline-3">
+<h3 id="sec-1-9">条件处理</h3>
+</div>
+
+<div id="outline-container-sec-1-10" class="outline-3">
+<h3 id="sec-1-10">排序</h3>
+</div>
+
+<div id="outline-container-sec-1-11" class="outline-3">
+<h3 id="sec-1-11">变量和参数</h3>
+</div>
+
+<div id="outline-container-sec-1-12" class="outline-3">
+<h3 id="sec-1-12">附加功能</h3>
+</div>
+
+<div id="outline-container-sec-1-13" class="outline-3">
+<h3 id="sec-1-13">消息</h3>
+</div>
+
+<div id="outline-container-sec-1-14" class="outline-3">
+<h3 id="sec-1-14">扩展</h3>
+</div>
+
+<div id="outline-container-sec-1-15" class="outline-3">
+<h3 id="sec-1-15">反馈</h3>
+</div>
+
+<div id="outline-container-sec-1-16" class="outline-3">
+<h3 id="sec-1-16">输出</h3>
+</div>
+
+<div id="outline-container-sec-1-17" class="outline-3">
+<h3 id="sec-1-17">一致性</h3>
+</div>
+
+<div id="outline-container-sec-1-18" class="outline-3">
+<h3 id="sec-1-18">表示法</h3>
+<div class="outline-text-3" id="text-1-18">
+<p>
+<b>持续更新中 &#x2026;&#x2026;</b>
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2015-10-28</p>
+<p class="author">Author: 陈广歧</p>
+<p class="date">Created: 2015-10-29 木 17:12</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

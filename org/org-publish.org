@@ -1,0 +1,189 @@
+#+TITLE: 将发布Org文件为HTML文件
+
+* 摘要
+  本文简单的介绍了Org工程的组织形式，使用 =Org-mode 发布工程= 的方法以及常用的设置选项。
+  为个人Blog网站的搭建奠定基础。
+* Blog发布
+  使用变量 =org-publish-project-alist= 来配置需要发布的文档。
+  该变量的值有下面的两种形式：
+  
+#+BEGIN_EXAMPLE
+("project-name" :property value :property value ...)
+#+END_EXAMPLE
+  或
+#+BEGIN_EXAMPLE
+("project-name" :components ("project-name" "project-name" ...))
+#+END_EXAMPLE
+  第一种形式用于配置单工程，第二种形式用于组织多个工程(使用 =:components=)，并以给定的顺序发布各个工程。
+* 单个工程的配置
+  配置的大部分属性是可选的，但是有些属性必须设置。尤其是要让Org知道从哪里查找源文件，发布到哪里。
+
+  #+BEGIN_EXAMPLE
+  :base-directory          ; 包含源文件的目录
+  :publishing-directory    ; 发布的目录
+  :preparation-function    ; 发布前要调用的函数或函数列表
+  :completion-function     ; 发布后要调用的函数或函数列表
+  #+END_EXAMPLE
+
+* 选择文件
+  默认在源文件目录中所有以 =.org= 为扩展名的文件被视为工程的一部分。这个可以通过设定属性进行修改。
+  #+BEGIN_EXAMPLE
+  :base-extension    ; 源文件的扩展名（不带.)， 这实际是一个正则表达式。
+                     ; 使用符号 =any= 可以包含源文件目录所有文件，
+                     ; 即使没有带扩展名的文件。
+  :exclude           ; 不需要发布的文件的正则表达式。
+  :include           ; 需要发布的文件列表，即使他们在 =:base-directory= 和 =:exclude= 。
+  :recursive
+  #+END_EXAMPLE
+
+* 发布动作
+  发布意味着文件将被拷贝到目标目录，并在这个过程中进行转换。默认的转换是将Org文件导出为HTML文件，
+  由函数 =org-html-publish-to-html= 完成，它会调用HTML导出器。但是也可以发布成PFD文件，
+  使用 =org-latex-publish-to-pdf=，或者发布为ascii、Texinfo等格式，使用响应的函数。
+
+  如果你想发布Org文件为Org文件，添加 =archived= 和 =commented= 以及删除 =tag-exclude= 树，
+  使用函数 =org-org-publish-to-org= 。这将在发布目录中生成 =file.org= 文件。如果需要htmlized
+  版的文件，可以设置 =:htmlized-source= 属性为 =t= ，这将在发布目录中生成 =file.org.html= 文件。
+  
+  其他像图片文件只需要拷贝到发布目录。完成该这个可以使用函数 =org-publish-attachment= 。
+  对于非Org文件，必须指定发布函数：
+  #+BEGIN_EXAMPLE
+  :publish-function    ; 发布文件的函数，也可是函数的列表
+  :htmlized-source     ; 非nil，发布htmlized源文件。
+  #+END_EXAMPLE
+
+* 导出器的选项
+  发布过程中可以使用的导出设置选项的属性列表。大部分情况，这些属性对应到Org中的用户变量。
+  在 =org-publish-project-alist= 中设置的属性会覆盖用户变量，在源文件中设置的属性会覆盖
+  所有设置。
+  
+  - 用于属性
+    #+BEGIN_EXAMPLE
+    :archived-trees 	  org-export-with-archived-trees
+    :exclude-tags 	  org-export-exclude-tags
+    :headline-levels 	  org-export-headline-levels
+    :language 	          org-export-default-language
+    :preserve-breaks 	  org-export-preserve-breaks
+    :section-numbers 	  org-export-with-section-numbers
+    :select-tags 	  org-export-select-tags
+    :with-author 	  org-export-with-author
+    :with-creator 	  org-export-with-creator
+    :with-date 	          org-export-with-date
+    :with-drawers 	  org-export-with-drawers
+    :with-email 	  org-export-with-email
+    :with-emphasize 	  org-export-with-emphasize
+    :with-fixed-width 	  org-export-with-fixed-width
+    :with-footnotes 	  org-export-with-footnotes
+    :with-latex 	  org-export-with-latex
+    :with-planning 	  org-export-with-planning
+    :with-priority 	  org-export-with-priority
+    :with-properties 	  org-export-with-properties
+    :with-special-strings org-export-with-special-strings
+    :with-sub-superscript org-export-with-sub-superscripts
+    :with-tables 	  org-export-with-tables
+    :with-tags 	          org-export-with-tags
+    :with-tasks 	  org-export-with-tasks
+    :with-timestamps 	  org-export-with-timestamps
+    :with-title 	  org-export-with-title
+    :with-toc 	          org-export-with-toc
+    :with-todo-keywords   org-export-with-todo-keywords
+    #+END_EXAMPLE
+  - HTML特定属性 
+    #+BEGIN_EXAMPLE
+    :html-allow-name-attribute-in-anchors 	    org-html-allow-name-attribute-in-anchors
+    :html-checkbox-type 	                    org-html-checkbox-type
+    :html-container 	                            org-html-container-element
+    :html-divs 	                                    org-html-divs
+    :html-doctype 	                            org-html-doctype
+    :html-extension 	                            org-html-extension
+    :html-footnote-format 	                    org-html-footnote-format
+    :html-footnote-separator 	                    org-html-footnote-separator
+    :html-footnotes-section 	                    org-html-footnotes-section
+    :html-format-drawer-function 	            org-html-format-drawer-function
+    :html-format-headline-function 	            org-html-format-headline-function
+    :html-format-inlinetask-function 	            org-html-format-inlinetask-function
+    :html-head-extra 	                            org-html-head-extra
+    :html-head-include-default-style 	            org-html-head-include-default-style
+    :html-head-include-scripts 	                    org-html-head-include-scripts
+    :html-head 	                                    org-html-head
+    :html-home/up-format 	                    org-html-home/up-format
+    :html-html5-fancy 	                            org-html-html5-fancy
+    :html-indent 	                            org-html-indent
+    :html-infojs-options 	                    org-html-infojs-options
+    :html-infojs-template 	                    org-html-infojs-template
+    :html-inline-image-rules 	                    org-html-inline-image-rules
+    :html-inline-images 	                    org-html-inline-images
+    :html-link-home 	                            org-html-link-home
+    :html-link-org-files-as-html 	            org-html-link-org-files-as-html
+    :html-link-up 	                            org-html-link-up
+    :html-link-use-abs-url 	                    org-html-link-use-abs-url
+    :html-mathjax-options 	                    org-html-mathjax-options
+    :html-mathjax-template 	                    org-html-mathjax-template
+    :html-metadata-timestamp-format 	            org-html-metadata-timestamp-format
+    :html-postamble-format 	                    org-html-postamble-format
+    :html-postamble 	                            org-html-postamble
+    :html-preamble-format 	                    org-html-preamble-format
+    :html-preamble 	                            org-html-preamble
+    :html-table-align-individual-fields 	    org-html-table-align-individual-fields
+    :html-table-attributes 	                    org-html-table-default-attributes
+    :html-table-caption-above 	                    org-html-table-caption-above
+    :html-table-data-tags 	                    org-html-table-data-tags
+    :html-table-header-tags 	                    org-html-table-header-tags
+    :html-table-row-tags 	                    org-html-table-row-tags
+    :html-table-use-header-tags-for-first-column    org-html-table-use-header-tags-for-first-column
+    :html-tag-class-prefix 	                    org-html-tag-class-prefix
+    :html-text-markup-alist 	                    org-html-text-markup-alist
+    :html-todo-kwd-class-prefix 	            org-html-todo-kwd-class-prefix
+    :html-toplevel-hlevel 	                    org-html-toplevel-hlevel
+    :html-use-infojs 	                            org-html-use-infojs
+    :html-validation-link 	                    org-html-validation-link
+    :html-viewport 	                            org-html-viewport
+    :html-xml-declaration 	                    org-html-xml-declaration
+    #+END_EXAMPLE
+* 发布的文件之间的Link
+  为了创建一个Org文件与另一个Org文件的连接，使用下面的方法：
+  #+BEGIN_EXAMPLE
+  [[file:foo.org][The foo]] 或 file:foo.org
+  #+END_EXAMPLE
+
+  图片文件也可以使用这样的方法。
+
+*  生成站点地图
+   下面的属性用来控制给定工程发布的文件映射
+   #+BEGIN_EXAMPLE
+   :auto-sitemap               ; 非nil，发布站点地图
+   :sitemap-filename           ; 输出的站点地图文件的名称，默认是sitemap.org
+   :sitemap-title              ; 站点地图页的标题，默认是文件的名称。
+   :sitemap-function
+   :sitemap-sort-folders
+   :sitemap-sort-files
+   :sitemap-ignore-case
+   :sitemap-file-entry-format
+   :sitemap-date-format
+   :sitemap-sans-extension 
+   #+END_EXAMPLE
+
+* 生成index
+  Org可以生成发布工程夸文件index。
+  #+BEGIN_EXAMPLE
+  :makeindex                   ; 非nil，生成theindex.org并发布theindex.html.
+  #+END_EXAMPLE
+
+* 触发发布
+  正确配置后，Org可以使用以下命令发布：
+  - C-c C-e P x (org-publish)
+    提示发布指定工程
+    
+  - C-c C-e P p (org-publish-current-project)
+    发布包含当前文件的工程
+
+  - C-c C-e P f (org-publish-current-file)
+    发布当前文件
+    
+  - C-c C-e P a (org-publish-all)
+    发布所有工程
+
+  Org使用时间戳跟踪文件的变更。上面的函数通常仅发布变更的文件。调用上面的函数时，可以使用前缀参数强制发布
+  所有的文件，或设置变量 =org-publish-use-timestamps-flag= 。如果文件通过 =#+SETUPFILE:=，
+  或 =+INCLUDE:= 包含其他文件，就必须强制发布。
+
