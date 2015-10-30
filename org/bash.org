@@ -2,6 +2,14 @@
 #+TITLE: Linux Bash 笔记
 
 * Bash的内置关键字
+** =let=
+   使用格式：
+   #+BEGIN_EXAMPLE
+   let arg [arg ...]
+   #+END_EXAMPLE
+   每个参数是一个被求值的算术表达式。如果最后一个参数求值是0，=let= 返
+   回1；否则返回0。
+
 ** =local=
 
   使用格式：
