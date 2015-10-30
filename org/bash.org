@@ -9,8 +9,8 @@
   local [option] [name[=value] ...]
   #+END_EXAMPLE
 
-  为每一个参数创建以名称为 =name= 局部变量，并赋值为 =value= 。
-  =option= 是 =declear= 可接受的任何选项。当在函数内使用 =local= ，它
+  为每一个参数创建以名称为 =name= 的局部变量，并赋值为 =value= 。
+  =option= 是 =declare= 可接受的任何选项。当在函数内使用 =local= ，它
   会导致变量 =name= 的可见范围限制到函数以及下面的部分。不带操作数，
   =local= 写局部变量的列表到标准输出。不在函数内使用 =local= 是错误的。
   它的返回码是0，除非 =local= 在函数的外部使用，提供的 =name= 无效，或
