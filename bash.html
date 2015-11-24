@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>Linux Bash 笔记</title>
-<!-- 2015-10-30 金 12:41 -->
+<!-- 2015-11-03 火 17:34 -->
 <meta  charset="utf-8">
 <meta  name="generator" content="Org-mode">
 <meta  name="author" content="Chen Guangqi">
@@ -141,8 +141,24 @@ for the JavaScript code in this tag.
 <h2 id="sec-1">Bash的内置关键字</h2>
 <div class="outline-text-2" id="text-1">
 </div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><code>local</code></h3>
+<h3 id="sec-1-1"><code>let</code></h3>
 <div class="outline-text-3" id="text-1-1">
+<p>
+使用格式：
+</p>
+<pre class="example">
+let arg [arg ...]
+</pre>
+<p>
+每个参数是一个被求值的算术表达式。如果最后一个参数求值是0，=let= 返
+回1；否则返回0。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><code>local</code></h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
 使用格式：
 </p>
@@ -151,8 +167,8 @@ local [option] [name[=value] ...]
 </pre>
 
 <p>
-为每一个参数创建以名称为 <code>name</code> 局部变量，并赋值为 <code>value</code> 。
-<code>option</code> 是 <code>declear</code> 可接受的任何选项。当在函数内使用 <code>local</code> ，它
+为每一个参数创建以名称为 <code>name</code> 的局部变量，并赋值为 <code>value</code> 。
+<code>option</code> 是 <code>declare</code> 可接受的任何选项。当在函数内使用 <code>local</code> ，它
 会导致变量 <code>name</code> 的可见范围限制到函数以及下面的部分。不带操作数，
 <code>local</code> 写局部变量的列表到标准输出。不在函数内使用 <code>local</code> 是错误的。
 它的返回码是0，除非 <code>local</code> 在函数的外部使用，提供的 <code>name</code> 无效，或
@@ -164,7 +180,7 @@ local [option] [name[=value] ...]
 </div>
 <div id="postamble" class="status">
 <p class="author">&#20316;&#32773;: Chen Guangqi</p>
-<p class="date">Created: 2015-10-30 金 12:41</p>
+<p class="date">Created: 2015-11-03 火 17:34</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

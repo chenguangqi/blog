@@ -1,0 +1,53 @@
+* 交叉编译SBCL
+
+** 需要的工具:
+ 1. 编译器(gcc)
+ 2. common lisp(sbcl)
+
+** 执行下面的命令：
+
+#+BEGIN_EXAMPLE
+sh make.sh
+sh make.sh --prefix=/opt/mysbcl
+sh make.sh --prefix=/opt/mysbcl --dynamic-space-size=4Gb
+sh make.sh --prefix=/opt/mysbcl --dynamic-space-size=800Mb
+
+如果主机安装的common lisp系统不是sbcl， 需要指点使用的lisp系统以及参数
+sh make.sh --prefix=/opt/mysbcl --dynamic-space-size=800Mb --xc-host='lisp -batch -noinit'
+#+END_EXAMPLE
+
+** 配置SBCL可以使用下面的命令：
+
+#+BEGIN_EXAMPLE
+sh make.sh --prefix=/opt/mysbcl --dynamic-space-size=800Mb --xc-host='lisp -batch -noinit' --fancy
+sh make.sh --prefix=/opt/mysbcl --dynamic-space-size=800Mb --xc-host='lisp -batch -noinit' --with-*
+sh make.sh --prefix=/opt/mysbcl --dynamic-space-size=800Mb --xc-host='lisp -batch -noinit' --without-*
+
+常用的参数有：
+--with-sb-thread
+--without-sb-thread
+--with-sb-core-compression
+--with-sb-xref-for-internals
+--without-sb-unicode
+
+其他的支持的配置参数可以在下面的文件中找到。
+base-target-features.lisp-expr
+#+END_EXAMPLE
+
+** 主机环境：
+#+BEGIN_EXAMPLE
+$ lsb_release  -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 14.04.2 LTS
+Release:        14.04
+Codename:       trusty
+
+$ uname -a
+Linux vb 3.13.0-49-generic #81-Ubuntu SMP Tue Mar 24 19:29:48 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+
+$ sbcl --version
+SBCL 1.1.14.debian
+
+下载源码：sbcl-1.2.13-source.tar.bz2
+#+END_EXAMPLE
