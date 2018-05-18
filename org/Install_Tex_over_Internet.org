@@ -94,7 +94,7 @@
    #+END_SRC
 
 ** ctex提供的字体配置
-   ctex提供了多套字体配置，可以根据不同的环境适应响应的配置。
+   =ctex= 提供了多套字体配置，可以根据不同的环境适应响应的配置。
    目前提供的字体配置有:
    - adobe
    - fandol
@@ -106,3 +106,6 @@
    - windows
    - windowsnew
    - windowsold
+  
+
+   =ctex= 更详细的使用方法，可以参考 =/usr/local/texlive/2018/texmf-dist/doc/latex/ctex/ctex.pdf= 文件。
