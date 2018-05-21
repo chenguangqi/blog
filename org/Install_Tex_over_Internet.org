@@ -1,111 +1,118 @@
-* 安装Tex
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASS: ctexart
+#+LATEX_CLASS_OPTIONS: [UTF8]
 
-** 系统环境
-   #+BEGIN_EXAMPLE
-   dulangci@home:~/orgs$ lsb_release -a
-   No LSB modules are available.
-   Distributor ID: Ubuntu
-   Description:    Ubuntu 16.04.3 LTS
-   Release:        16.04
-   Codename:       xenial
-   #+END_EXAMPLE
+#+TITLE: 安装Tex
+#+AUTHOR: 陈广歧(Chen Guangqi)
 
-** 下载网络安装工具
-   #+BEGIN_EXAMPLE
-   dulangci@home:~/tex$ wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-   #+END_EXAMPLE
+* 系统环境
+  #+BEGIN_EXAMPLE
+  dulangci@home:~/orgs$ lsb_release -a
+  No LSB modules are available.
+  Distributor ID: Ubuntu
+  Description:    Ubuntu 16.04.3 LTS
+  Release:        16.04
+  Codename:       xenial
+  #+END_EXAMPLE
 
-** 解压安装包
-   #+BEGIN_EXAMPLE
-   dulangci@home:~/tex$ tar xmvf install-tl-unx.tar.gz
-   dulangci@home:~/tex$ cd install-tl-20180517/
-   #+END_EXAMPLE
+* 下载网络安装工具
+  #+BEGIN_EXAMPLE
+  dulangci@home:~/tex$ wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+  #+END_EXAMPLE
 
-** 配置(small)并安装
-   #+BEGIN_EXAMPLE
-   dulangci@home:~/install-tl-20180517$ sudo ./install-tl -lang zh_CN
-   dulangci@home:~/install-tl-20180517$ sudo ./install-tl -profile texlive.profile
-   #+END_EXAMPLE
+* 解压安装包
+  #+BEGIN_EXAMPLE
+  dulangci@home:~/tex$ tar xmvf install-tl-unx.tar.gz
+  dulangci@home:~/tex$ cd install-tl-20180517/
+  #+END_EXAMPLE
 
-** 添加命令的路径到PATH变量中
-   =~/.bash_profile= :
-   #+BEGIN_SRC sh
-   #Add /usr/local/texlive/2018/texmf-dist/doc/man to MANPATH.
-   #Add /usr/local/texlive/2018/texmf-dist/doc/info to INFOPATH.
-   #Most importantly, add /usr/local/texlive/2018/bin/x86_64-linux
-   #to your PATH for current and future sessions.
-   # Setup for Tex Live
-   export MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:${MANPATH}
-   export INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:${INFOPATH}
-   export PATH=/usr/local/texlive/2018/bin/x86_64-linux:${PATH}
-   #+END_SRC
+* 配置(small)并安装
+  #+BEGIN_EXAMPLE
+  dulangci@home:~/install-tl-20180517$ sudo ./install-tl -lang zh_CN
+  dulangci@home:~/install-tl-20180517$ sudo ./install-tl -profile texlive.profile
+  #+END_EXAMPLE
 
-   在文件 =/etc/sudoers= 中添加texlive的路径, 如下所示:
-   #+BEGIN_EXAMPLE
-   Defaults        secure_path="/usr/local/texlive/2018/bin/x86_64-linux:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
-   #+END_EXAMPLE
+* 添加命令的路径到PATH变量中
+  =~/.bash_profile= :
+  #+BEGIN_SRC sh
+  #Add /usr/local/texlive/2018/texmf-dist/doc/man to MANPATH.
+  #Add /usr/local/texlive/2018/texmf-dist/doc/info to INFOPATH.
+  #Most importantly, add /usr/local/texlive/2018/bin/x86_64-linux
+  #to your PATH for current and future sessions.
+  # Setup for Tex Live
+  export MANPATH=/usr/local/texlive/2018/texmf-dist/doc/man:${MANPATH}
+  export INFOPATH=/usr/local/texlive/2018/texmf-dist/doc/info:${INFOPATH}
+  export PATH=/usr/local/texlive/2018/bin/x86_64-linux:${PATH}
+  #+END_SRC
 
-** 确认安装结果
-   #+BEGIN_EXAMPLE
-   dulangci@home:~/tex$ tex --version
-   #+END_EXAMPLE
+  在文件 =/etc/sudoers= 中添加texlive的路径, 如下所示:
+  #+BEGIN_EXAMPLE
+  Defaults secure_path="/usr/local/texlive/2018/bin/x86_64-linux:\\
+    /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+  #+END_EXAMPLE
 
-** 测试生成PDF文件
-   =test.tex= :
-   #+BEGIN_SRC tex
-   \documentclass{article}
-   \begin{document}
-   Hello \LaTeX!
-   \end{document}
-   #+END_SRC
+* 确认安装结果
+  #+BEGIN_EXAMPLE
+  dulangci@home:~/tex$ tex --version
+  #+END_EXAMPLE
 
-   #+BEGIN_EXAMPLE
-   dulangci@home:~/tex$ xelatex test.tex
-   This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex)
-   restricted \write18 enabled.
-   entering extended mode
-   (./test.tex
-   LaTeX2e <2018-04-01> patch level 4
-   (/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
-   Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-   (/usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo))
-   No file test.aux.
-   [1] (./test.aux) )
-   Output written on test.pdf (1 page).
-   Transcript written on test.log.
-   #+END_EXAMPLE
+* 测试生成PDF文件
+  =test.tex= :
+  #+BEGIN_SRC tex
+  \documentclass{article}
+  \begin{document}
+  Hello \LaTeX!
+  \end{document}
+  #+END_SRC
 
-** 添加中文支持
-   #+BEGIN_EXAMPLE
-   dulangci@home:~/tex$ sudo tlmgr install ctex
-   dulangci@home:~/tex$ sudo tlmgr install environ
-   dulangci@home:~/tex$ sudo tlmgr install trimspaces
-   dulangci@home:~/tex$ sudo tlmgr install zhnumber
-   dulangci@home:~/tex$ sudo tlmgr install fandol
-   #+END_EXAMPLE
+  #+BEGIN_EXAMPLE
+  dulangci@home:~/tex$ xelatex test.tex
+  This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex)
+  restricted \write18 enabled.
+  entering extended mode
+  (./test.tex
+  LaTeX2e <2018-04-01> patch level 4
+  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
+  Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo))
+  No file test.aux.
+  [1] (./test.aux) )
+  Output written on test.pdf (1 page).
+  Transcript written on test.log.
+  #+END_EXAMPLE
 
-** 测试生成包含中文的PDF文件
-   =ctex.tex= :
-   #+BEGIN_SRC tex
-   \documentclass[UTF8,fontset=fandol]{ctexart}
-   \begin{document}
-   您好，\LaTeX！
-   \end{document}
-   #+END_SRC
+* 添加中文支持
+  #+BEGIN_EXAMPLE
+  dulangci@home:~/tex$ sudo tlmgr install ctex
+  dulangci@home:~/tex$ sudo tlmgr install environ
+  dulangci@home:~/tex$ sudo tlmgr install trimspaces
+  dulangci@home:~/tex$ sudo tlmgr install zhnumber
+  dulangci@home:~/tex$ sudo tlmgr install fandol
+  #+END_EXAMPLE
 
-** ctex提供的字体配置
-   =ctex= 提供了多套字体配置，可以根据不同的环境适应响应的配置。
-   目前提供的字体配置有:
-   - adobe
-   - fandol
-   - founder
-   - mac
-   - macnew
-   - macold
-   - ubuntu
-   - windows
-   - windowsnew
-   - windowsold
-  
+* 测试生成包含中文的PDF文件
+  =ctex.tex= :
+  #+BEGIN_SRC tex
+  \documentclass[UTF8,fontset=fandol]{ctexart}
+  \begin{document}
+  您好，\LaTeX！
+  \end{document}
+  #+END_SRC
 
-   =ctex= 更详细的使用方法，可以参考 =/usr/local/texlive/2018/texmf-dist/doc/latex/ctex/ctex.pdf= 文件。
+* ctex提供的字体配置
+  =ctex= 提供了多套字体配置，可以根据不同的环境适应响应的配置。
+  目前提供的字体配置有:
+  - adobe
+  - fandol
+  - founder
+  - mac
+  - macnew
+  - macold
+  - ubuntu
+  - windows
+  - windowsnew
+  - windowsold
+ 
+
+  =ctex= 更详细的使用方法，可以参考
+  =/usr/local/texlive/2018/texmf-dist/doc/latex/ctex/ctex.pdf= 文件。
