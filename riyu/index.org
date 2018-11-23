@@ -25,7 +25,13 @@
       いいえ。　[カリナさんは]　学生です。
    6. テレーザちゃんは　何歳ですか。\\
       ９歳です。
-
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第２課
 ** 文型
    1. これは　辞書ですか。
@@ -49,7 +55,13 @@
       いいえ、わたしのじゃ　ありません。
    8. この　かぎは　だれのですか。\\
       わたしのです。
-
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第３課
 ** 文型
    1. ここは　食堂です。
@@ -70,7 +82,13 @@
       イタリアの靴ですか。
    7. この　時計は　いくらですか。\\
       １８,６００円です。
-
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第４課
   
 ** 文型
@@ -96,6 +114,13 @@
       いいえ、働きません。
    7. きのう　勉強しましたか。\\
       いいえ、勉強しませんでした。
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第５課
 ** 文型
    1. 
@@ -103,6 +128,13 @@
 ** 例文
    #+html: <audio src="reibunn/05.flac" controls="controls"></audio>
    1. 
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第６課
 ** 文型
    1. 
@@ -110,7 +142,13 @@
 ** 例文
    #+html: <audio src="reibunn/06.flac" controls="controls"></audio>
    1. 
-
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第７課
 ** 文型
    1. 
@@ -118,6 +156,13 @@
 ** 例文
    #+html: <audio src="reibunn/07.flac" controls="controls"></audio>
    1. 
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第８課
 ** 文型
    1. 
@@ -125,6 +170,13 @@
 ** 例文
    #+html: <audio src="reibunn/08.flac" controls="controls"></audio>
    1. 
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第９課
 ** 文型
    1. 
@@ -132,6 +184,13 @@
 ** 例文
    #+html: <audio src="reibunn/09.flac" controls="controls"></audio>
    1. 
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第１０課
 ** 文型
    1. 
@@ -139,6 +198,13 @@
 ** 例文
    #+html: <audio src="reibunn/10.flac" controls="controls"></audio>
    1. 
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第１１課
 ** 文型
    1. 
@@ -146,6 +212,13 @@
 ** 例文
    #+html: <audio src="reibunn/11.flac" controls="controls"></audio>
    1. 
+** 会話
+   #+html: <audio src="kaiwa/1.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第１２課
 ** 文型
    1. 
@@ -398,6 +471,15 @@
    5. エンジンの　音が　おかしいですね。\\
       そうですね。　故障かも　しれません。\\
       ちょっと　調べましょう。
+** 会話
+   #+html: <audio src="kaiwa/32.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *無理を　しない　ほうがいいですよ*
+   小川　　　：　シュミットさん、元気が　ありませんね。
+   　　　　　　　どう　したんですか。
+   シュミット：　最近　体の　調子が　よくないんです。
+   　　　　　　　時々　頭や　胃が　痛く　なるんですよ。
+   #+END_VERSE
 
 * 第３３課
 ** 文型
@@ -783,7 +865,13 @@
       銀行員です。　アップル銀行に　勤めて　います。
    7. 松本部長は　いらっしゃいますか。\\
       ええ、こちらの　お部屋です。　どうぞ　お入り　ください。
-
+** 会話
+   #+html: <audio src="kaiwa/49.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+             *title*
+   小川　　　：　
+   シュミット：　
+   #+END_VERSE
 * 第５０課
 ** 文型
    1. 今月の　スケジュールを　お送りします。
@@ -806,3 +894,26 @@
       どうぞ　よろしく　お願いします。
    6. ご家族は　どちらに　いらっしゃいますか。
       ニューヨークに　おります。
+** 会話
+   #+html: <audio src="kaiwa/50.flac" controls="controls"></audio>
+   #+BEGIN_VERSE
+   　　　　　　　　　　 *心から　感謝いたします*
+   司会者：　優勝　おめでとう　ございます。
+   　　　　　すばらしい　スピーチでした。
+   ミラー：　ありがとう　がざいます。
+   司会者：　緊張なさいましたか。
+   ミラー：　はい、とても　緊張いたしました。
+   司会者：　練習は　大変でしたか。
+   ミラー：　ええ。　忙しくて、なかなか　練習の　時間が
+   　　　　　ありませんでした。
+   司会者：　賞金は　何に　お使いになりますか。
+   ミラー：　そうですね。　わたしは　動物が　好きで、子供の　ときから
+   　　　　　アフリカへ　行きのが　夢でした。
+   司会者：　じゃ、アフリカへ　行かれますか。
+   ミラー：　はい、アフリカの　自然の　中で　きりんや　象を　見たいと
+   　　　　　思います。
+   司会者：　子どもの　ころの　夢が　かなうですね。
+   ミラー：　はい。　うれしいです。
+   　　　　　応援して　くださった　皆様に　心から　感謝いたします。
+   　　　　　どうも　ありがとう　ございました。
+   #+END_VERSE
